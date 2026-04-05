@@ -10,8 +10,7 @@ const { protect, adminOnly } = require("../middleware/authMiddleware");
 // ================= APPLY LEAVE =================
 router.post("/apply", protect, async (req, res) => {
   try {
-    const { fromDate, toDate, reason } = req.body;
-
+    const { fromDate, toDate, reason, leaveType } = req.body;
     const user = await User.findById(req.user.id);
 
     const start = new Date(fromDate);
@@ -31,7 +30,8 @@ router.post("/apply", protect, async (req, res) => {
       fromDate,
       toDate,
       days,
-      reason
+      reason,
+      leaveType
     });
 
     await leave.save();
@@ -59,6 +59,7 @@ router.get("/history", protect, async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 });
+
 
 
 // ================= GET BALANCE =================
@@ -188,6 +189,24 @@ router.get("/admin/stats", protect, adminOnly, async (req, res) => {
       approved,
       rejected
     });
+
+  } catch (error) {
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
+router.get("/user/stats", protect, async (req, res) => {
+  try {
+    const leaves = await Leave.find({ userId: req.user.id });
+
+    const stats = {
+      total: leaves.length,
+      approved: leaves.filter(l => l.status === "Approved").length,
+      pending: leaves.filter(l => l.status === "Pending").length,
+      rejected: leaves.filter(l => l.status === "Rejected").length
+    };
+
+    res.json(stats);
 
   } catch (error) {
     res.status(500).json({ message: "Server error" });

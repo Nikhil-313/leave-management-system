@@ -36,7 +36,7 @@ function AdminPanel() {
       <h1>Admin Panel</h1>
 
       {error && <p className="message">{error}</p>}
-
+      <div style={{ overflowX: "auto" }}>
       <table>
         <thead>
           <tr>
@@ -44,6 +44,7 @@ function AdminPanel() {
             <th>From</th>
             <th>To</th>
             <th>Days</th>
+            <th>Type</th>
             <th>Reason</th>
             <th>Status</th>
             <th>Action</th>
@@ -56,6 +57,7 @@ function AdminPanel() {
               <td>{new Date(leave.fromDate).toLocaleDateString()}</td>
               <td>{new Date(leave.toDate).toLocaleDateString()}</td>
               <td>{leave.days}</td>
+              <td>{leave.leaveType || "CL"}</td>
               <td>{leave.reason}</td>
               <td>
                 <span className={`status ${leave.status.toLowerCase()}`}>
@@ -89,6 +91,7 @@ function AdminPanel() {
         </tbody>
       </table>
     </div>
+  </div>
   );
 }
 

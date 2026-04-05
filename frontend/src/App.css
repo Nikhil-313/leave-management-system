@@ -4,6 +4,7 @@ body {
   background: #f5f7fb;
 }
 
+/* Layout */
 .layout {
   display: flex;
 }
@@ -12,13 +13,17 @@ body {
   flex: 1;
   padding: 30px;
 }
+
+/* Card */
 .card {
   background: white;
   padding: 25px;
   border-radius: 12px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  margin-top: 20px;
 }
 
+/* Balance */
 .balance-box {
   margin-top: 20px;
   background: linear-gradient(90deg, #2563eb, #1d4ed8);
@@ -32,6 +37,8 @@ body {
   font-size: 50px;
   font-weight: bold;
 }
+
+/* Form */
 .form {
   display: flex;
   gap: 15px;
@@ -39,36 +46,50 @@ body {
   flex-wrap: wrap;
 }
 
+.form input {
+  flex: 1 1 200px;
+}
+
+.form button {
+  flex: 1 1 100%;
+}
+
+/* Inputs */
 input {
   padding: 10px;
   border-radius: 6px;
   border: 1px solid #ddd;
-  flex: 1;
 }
 
+/* Buttons (single clean version) */
 button {
-  padding: 10px 20px;
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
   background: #2563eb;
   color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
+  transition: 0.2s;
 }
 
 button:hover {
   background: #1d4ed8;
 }
 
+/* Message */
 .message {
   margin-top: 15px;
   font-weight: bold;
 }
+
+/* Export buttons */
 .export-buttons {
   margin-bottom: 15px;
   display: flex;
   gap: 10px;
 }
 
+/* Table */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -82,6 +103,11 @@ td {
   border-bottom: 1px solid #eee;
 }
 
+tr:hover {
+  background: #f9fafb;
+}
+
+/* Status */
 .status {
   padding: 5px 10px;
   border-radius: 20px;
@@ -100,23 +126,8 @@ td {
 .status.rejected {
   background: red;
 }
-button {
-  padding: 8px 14px;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  background: #2563eb;
-  color: white;
-}
 
-button:hover {
-  opacity: 0.9;
-}
-
-button:nth-child(2) {
-  background: red;
-}
-
+/* Stats */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -125,17 +136,39 @@ button:nth-child(2) {
 }
 
 .stat-box {
-  background: #f1f5f9;
+  background: #f1f5f9; /* light gray */
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 12px;
   text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: 0.2s;
 }
 
+.stat-box:hover {
+  transform: translateY(-3px);
+}
 .stat-box h3 {
   margin-bottom: 10px;
+  font-weight: 500;
 }
 
 .stat-box p {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
+}
+
+/* Global */
+* {
+  box-sizing: border-box;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main {
+    padding: 15px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

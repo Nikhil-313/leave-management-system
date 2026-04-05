@@ -45,3 +45,14 @@
 .sidebar button:hover {
   background: #dc2626;
 }
+.sidebar {
+  width: 220px;
+  min-height: 100vh;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 160px;
+  }
+}

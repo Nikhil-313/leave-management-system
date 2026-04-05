@@ -15,9 +15,9 @@ import "./App.css";
 function App() {
   return (
     <Router>
-      <div className="layout">
+      <div style={{ display: "flex", minHeight: "100vh" }}>
         <Sidebar />
-        <div className="main">
+      <div style={{ flex: 1, padding: "20px" }}>
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />

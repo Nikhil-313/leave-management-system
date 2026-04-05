@@ -53,6 +53,17 @@ function ApplyLeave() {
           required
         />
 
+        <select
+          value={form.leaveType || "CL"}
+          onChange={(e) =>
+            setForm({ ...form, leaveType: e.target.value })
+          }
+        >
+          <option value="CL">Casual Leave</option>
+          <option value="SL">Sick Leave</option>
+          <option value="EL">Earned Leave</option>
+        </select>
+
         <input
           type="text"
           placeholder="Reason"

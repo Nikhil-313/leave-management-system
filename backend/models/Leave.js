@@ -12,6 +12,11 @@ const leaveSchema = new mongoose.Schema({
   status: {
     type: String,
     default: "Pending"
+  },
+  leaveType: {
+    type: String,
+    enum: ["CL", "SL", "EL"],
+    default: "CL"
   }
 });
 
