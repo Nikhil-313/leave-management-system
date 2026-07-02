@@ -18,7 +18,7 @@ function History() {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        "http://localhost:5000/api/leave/export/excel",
+        "https://d1b4mbglyz4eax.cloudfront.net/api/leave/export/excel",
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -47,7 +47,7 @@ function History() {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        "http://localhost:5000/api/leave/export/pdf",
+        "https://d1b4mbglyz4eax.cloudfront.net/api/leave/export/pdf",
         {
           headers: {
             Authorization: `Bearer ${token}`
